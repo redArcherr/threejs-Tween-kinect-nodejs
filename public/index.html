@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kinect-test</title>
+</head>
+<body>
+<h1>kinect</h1>
+<canvas id="canvas" width="880" height="400">您的浏览器不支持canvas</canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script src="javascripts/three.js"></script>
+<script>
+    var socket = io.connect('/');
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    socket.on('bodyFrame', function(bodyFrame){
+        console.log(bodyFrame);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var index = 0;
+        var colors=['#FFB6C1','#DC143C','#7B68EE'];
+        // 遍历所有骨骼数据
+        bodyFrame.bodies.forEach(function(body){
+            if(body.tracked) {
+                for(var jointType in body.joints) {
+                    var joint = body.joints[jointType];
+                    ctx.fillStyle = colors[index];
+                    // 如果骨骼节点为脊椎中点
+                    if(jointType == 1) {
+                        ctx.fillStyle = colors[2];
+                    }
+                    ctx.fillRect(joint.depthX * 512, joint.depthY * 424, 10, 10);
+                }
+                // 识别左右手手势
+                //updateHandState(body.leftHandState, body.joints[7]);
+                //updateHandState(body.rightHandState, body.joints[11]);
+                index++;
+            }
+        });
+    });
+</script>
+</body>
+</html>

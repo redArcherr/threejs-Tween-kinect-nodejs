@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/swiper.min.css">
+    <link rel="stylesheet" href="stylesheets/certify.css">
+    <link rel="stylesheet" href="stylesheets/animate.css">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="javascripts/jQuery.js"></script>
+    <script src="javascripts/three.js"></script>
+    <!--<script src="js/tween.min.js"></script>-->
+    <script src="javascripts/Tween.js"></script>
+    <script src="javascripts/Stats.js"></script>
+    <script src="javascripts/TrackballControls.js"></script>
+    <script src="javascripts/CSS3DRenderer.js"></script>
+    <script src="javascripts/swiper.min.js"></script>
+
+    <!-- 按钮及debug -->
+    <div id="menu">
+        <button id="table">table</button>
+        <button id="leave">leave</button>
+        <button id="fly">fly</button>
+        <button id="scroll">scroll</button>
+        <span>X:</span>&nbsp;&nbsp;<span>Y:</span>
+        <span>objX:</span>&nbsp;&nbsp;<span>objY:</span>
+        <span>distanceX:</span>&nbsp;&nbsp;<span>distanceY:</span>
+    </div>
+
+    <!-- 用于显示统计图形 -->
+    <div id="Stats-output"></div>
+    <!-- 圆球ui -->
+    <div id="ui_button"></div>
+    <!-- 元素内容 -->
+    <div id="container"></div>
+    <!--查询 弹出页-->
+    <div id="certify">
+        <div class="swiper-container">
+            <div class="close-button"><span>X</span></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/certify01.png" /><p>非常难得又值钱的认证证书</p></div>
+                <div class="swiper-slide"><img src="images/certify02.png" /><p>深圳市优秀互联网企业认定证书</p></div>
+                <div class="swiper-slide"><img src="images/certify03.png" /><p>质量管理体系认证荣誉证书</p></div>
+                <div class="swiper-slide"><img src="images/certify04.png" /><p>计算机软件著作权登记证书</p></div>
+                <div class="swiper-slide"><img src="images/certify05.png" /><p>增值电信业务经营许可证</p></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <script src="javascripts/myEvent_main.js"></script>
+    <script src="javascripts/myEvent_content.js"></script>
+</body>
+</html>
